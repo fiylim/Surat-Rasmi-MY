@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Surat Rasmi MY</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f766e">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{--bg:#f8fafc;--fg:#0f172a;--card:#fff;--bd:#cbd5e1;--ac:#0f766e}
+@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--fg:#e2e8f0;--card:#1e293b;--bd:#334155;--ac:#2dd4bf}}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--fg);padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+main{max-width:720px;margin:auto;padding:16px}h1{font-size:1.4rem;margin:.2em 0}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin:12px 0}
+label{display:block;font-size:.85rem;margin:10px 0 4px}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{padding:11px 16px;border:0;border-radius:8px;background:var(--ac);color:#fff;font:inherit;font-weight:600;margin:6px 6px 0 0}
+button.alt{background:transparent;color:var(--ac);border:1px solid var(--ac)}
+#out{white-space:pre-wrap;font-family:"Times New Roman",serif;font-size:1rem;line-height:1.5;background:#fff;color:#000;border:1px solid var(--bd);border-radius:8px;padding:18px;overflow-x:auto}
+.note{font-size:.8rem;opacity:.8}
+@media print{body>main>*:not(#printarea){display:none}#printarea{border:0;margin:0;padding:0}#out{border:0;padding:0}}
+</style>
+</head>
+<body>
+<main>
+<h1>📄 Surat Rasmi MY</h1>
+<p class="note">Penjana surat rasmi Bahasa Melayu untuk pelajar. / Malay formal letter generator for students.</p>
+
+<div class="card">
+<label>Jenis surat</label>
+<select id="tpl"></select>
+<label>Maklumat anda</label>
+<input id="nama" placeholder="Nama penuh">
+<div class="row"><input id="id" placeholder="No. matrik / ID pelajar"><input id="tel" placeholder="No. telefon"></div>
+<input id="prog" placeholder="Program / Kumpulan (cth: Diploma IT, L03)" style="margin-top:10px">
+<textarea id="alamat" rows="3" placeholder="Alamat (satu baris setiap baris)" style="margin-top:10px"></textarea>
+<label>Penerima</label>
+<input id="rTitle" placeholder="Gelaran (cth: Tuan / Puan / Dr. / Pn.)">
+<input id="rNama" placeholder="Nama penerima" style="margin-top:10px">
+<input id="rJawatan" placeholder="Jawatan (cth: Pensyarah MPU3122)" style="margin-top:10px">
+<input id="rInst" placeholder="Institusi / Jabatan" style="margin-top:10px">
+<textarea id="rAlamat" rows="2" placeholder="Alamat penerima (pilihan)" style="margin-top:10px"></textarea>
+<div id="fields"></div>
+<label>Tarikh surat</label><input id="tarikh" type="date">
+<label>Cogan kata penutup (pilihan, ikut institusi)</label>
+<input id="slogan" placeholder='cth: "BERKHIDMAT UNTUK NEGARA"'>
+<button onclick="gen()">Jana surat</button>
+</div>
+
+<div class="card" id="printarea"><div id="out">Isi borang dan tekan "Jana surat".</div></div>
+<div class="card">
+<button onclick="copyIt()">Salin</button><button class="alt" onclick="window.print()">Cetak / Simpan PDF</button>
+<p class="note">⚠️ Format am sahaja. Tiada satu format piawai untuk semua institusi; semak dengan pensyarah atau pejabat anda. Semak ejaan dan fakta sebelum hantar. Tiada data disimpan atau dihantar ke mana-mana pelayan.</p>
+</div>
+</main>
+<script src="templates.js"></script>
+<script src="app.js"></script>
+<script>if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js')</script>
+</body>
+</html>

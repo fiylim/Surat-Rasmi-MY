@@ -3,7 +3,7 @@
 Penjana surat rasmi Bahasa Melayu untuk pelajar Malaysia. Malay formal letter generator for students. Installable PWA, works offline, no data leaves your device.
 
 
-Live: https://fiylim.github.io/surat-rasmi-my/
+Live: https://github.com/fiylim/Surat-Rasmi-MY
 
 
 Templat / Templates
